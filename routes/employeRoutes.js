@@ -10,6 +10,7 @@ const {
     employeresetpassword,
     employeupdate,
     employeavatar,
+    employedeleteaccount,
     createinternship,
     readinternship,
     readsingleinternship,
@@ -43,6 +44,9 @@ router.get("/forgot-link/:id",employeforgotlink)
 
 //post/reset-password
 router.post("/reset-password/:id",isAuthenticated,employeresetpassword)
+
+//post/delete-account
+router.post("/delete-account/:id", isAuthenticated, employedeleteaccount);
 
 //post/employeupdate
 router.post("/employeupdate/:id",isAuthenticated,employeupdate)

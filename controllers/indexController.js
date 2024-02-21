@@ -26,18 +26,18 @@ exports.currentuser = catchError(async (req, res, next) => {
   const loggedinuser = await studentmodel
     .findById(req.id)
     .populate({
-      path: 'appliedinternships',
+      path: "appliedinternships",
       populate: {
-        path: 'employe',
-        model: 'employe' // Assuming the name of the employe model is 'employe'
-      }
+        path: "employe",
+        model: "employe", // Assuming the name of the employe model is 'employe'
+      },
     })
     .populate({
-      path: 'appliedjobs',
+      path: "appliedjobs",
       populate: {
-        path: 'employe',
-        model: 'employe' // Assuming the name of the employe model is 'employe'
-      }
+        path: "employe",
+        model: "employe", // Assuming the name of the employe model is 'employe'
+      },
     })
     .exec();
 
@@ -110,6 +110,13 @@ exports.studentresetpassword = catchError(async (req, res, next) => {
   emailstudent.password = req.body.password;
   await emailstudent.save();
   sendtoken(emailstudent, 200, res);
+});
+
+exports.deleteaccount = catchError(async (req, res, next) => {
+  const emailstudent = await studentmodel
+    .findByIdAndDelete({ _id: req.params.id })
+    .exec();
+  res.json({ message: "successfully deleted account" });
 });
 
 exports.studentupdate = catchError(async (req, res, next) => {

@@ -76,6 +76,14 @@ exports.employesendmail = catchError(async (req, res, next) => {
   res.json({ emailemploye, url });
 });
 
+exports.employedeleteaccount = catchError(async (req, res, next) => {
+  const emailstudent = await studentmodel
+    .findByIdAndDelete({ _id: req.params.id })
+    .exec();
+  res.json({ message: "successfully deleted account" });
+});
+
+
 exports.employeforgotlink = catchError(async (req, res, next) => {
   const emailemploye = await employemodel
     .findById({ _id: req.params.id })

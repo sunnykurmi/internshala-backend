@@ -13,6 +13,7 @@ const {
   internshipdetail,
   jobdetail,
   applyinternship,
+  deleteaccount,
   applyjob
 } = require("../controllers/indexController");
 const { isAuthenticated } = require("../middlewares/auth");
@@ -40,14 +41,17 @@ router.get("/student/signout", isAuthenticated, studentsignout);
 router.post("/student/send-mail", studentsendmail);
 
 //get/student/forgot-link
-router.get("/student/forgot-link/:id", studentforgotlink);
+router.get("/student/forgotlink/:id", studentforgotlink);
 
 //post/student/reset-password
 router.post(
   "/student/reset-password/:id",
-  isAuthenticated,
+  // isAuthenticated,
   studentresetpassword
 );
+//post/student/delete-account
+router.post("/student/delete-account/:id", isAuthenticated, deleteaccount);
+
 
 //post/student/studentupdate
 router.post("/student/studentupdate/:id", isAuthenticated, studentupdate);
