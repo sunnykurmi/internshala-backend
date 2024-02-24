@@ -29,6 +29,10 @@ const employemodel = new mongoose.Schema(
         "Please fill a valid email address",
       ],
     },
+    city: {
+      type: String,
+      // required:[true,"City is required"],
+    },
     password: {
       type: String,
       select: false,

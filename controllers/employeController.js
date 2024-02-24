@@ -83,6 +83,20 @@ exports.employedeleteaccount = catchError(async (req, res, next) => {
   res.json({ message: "successfully deleted account" });
 });
 
+exports.deleteinternship = catchError(async (req, res, next) => {
+  const emailstudent = await internshipmodel
+    .findByIdAndDelete({ _id: req.params.id })
+    .exec();
+  res.json({ message: "successfully deleted internship" });
+});
+
+exports.deletejob = catchError(async (req, res, next) => {
+  const emailstudent = await jobmodel
+    .findByIdAndDelete({ _id: req.params.id })
+    .exec();
+  res.json({ message: "successfully deleted internship" });
+});
+
 
 exports.employeforgotlink = catchError(async (req, res, next) => {
   const emailemploye = await employemodel

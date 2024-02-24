@@ -14,8 +14,10 @@ const {
     createinternship,
     readinternship,
     readsingleinternship,
+    deleteinternship,
     createjob,
     readjob,
+    deletejob,
     readsinglejob,
 } = require("../controllers/employeController");
 const { isAuthenticated } = require("../middlewares/auth");
@@ -53,6 +55,12 @@ router.post("/employeupdate/:id",isAuthenticated,employeupdate)
 
 //post/avatar
 router.post("/avatar/:id",isAuthenticated,employeavatar)
+
+//post/delete/ internship
+router.post("/delete/internship/:id",isAuthenticated,deleteinternship)
+
+//post/delete/ job
+router.post("/delete/job/:id",isAuthenticated,deletejob)
 
 // ------------------------------------------internships------------------------------------------
 //post/internship/create
