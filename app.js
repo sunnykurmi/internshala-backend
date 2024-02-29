@@ -14,12 +14,11 @@ const { generatedErrors } = require("./middlewares/errors");
 app.use(logger("tiny"));
 app.use(
   cors({
-    origin:
-      "https://internshala-frontend-2tx8.onrender.com" ||
-      "http://localhost:5173/",
+    // origin: "http://localhost:5173",
+    origin: "https://internshala-frontend-2tx8.onrender.com",
     credentials: true,
   })
-);
+  );
 
 //bodyparser
 app.use(express.json());
