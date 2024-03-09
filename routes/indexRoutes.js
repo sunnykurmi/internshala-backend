@@ -65,7 +65,7 @@ router.post("/internship/detail/:id", internshipdetail);
 
 // ----------------------------------view job --------------------------------
 //post/job/detail/:id
-router.post("/job/detail/:id", jobdetail);
+router.get("/job/detail/:id", jobdetail);
 
 // ----------------------------------apply internships --------------------------------
 //post/student/apply/:internshipid
