@@ -4,7 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config({ path: "./.env" });
 
-//DB CONNECTION
+//DB CONNECTIONcwkc
 require("./models/database").connectdb();
 
 //logger
