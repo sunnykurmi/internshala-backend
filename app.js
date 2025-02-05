@@ -14,8 +14,9 @@ const { generatedErrors } = require("./middlewares/errors");
 app.use(logger("tiny"));
 app.use(
   cors({
-    // origin: "http://localhost:5174",
-    origin:[ "https://internshala-frontend-2tx8.onrender.com/"],
+    // origin: "http://localhost:5173",
+    origin:"https://internshala-s6lb.onrender.com",
+    credentials: true,
   })
 );
 
